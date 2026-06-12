@@ -1,0 +1,7 @@
+# Local dev/preview tooling — not part of the published site
+.claude/
+
+# OS noise
+Thumbs.db
+desktop.ini
+.DS_Store

@@ -1,0 +1,14 @@
+# Render Blueprint — deploys this folder as a free static site.
+# Render reads this file automatically when you create a Blueprint
+# from the connected GitHub repo. Docs: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: statistical-consulting
+    runtime: static
+    buildCommand: ""        # plain HTML/CSS/JS — nothing to build
+    staticPublishPath: .    # serve the repo root
+    autoDeploy: true        # every push to main goes live automatically
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN

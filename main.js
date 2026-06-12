@@ -1,0 +1,115 @@
+/* Renders the PROJECTS array (projects-data.js) into #projects-grid,
+   plus small site behaviours (mobile nav, footer year). */
+
+(function () {
+  "use strict";
+
+  // ---------- Projects ----------
+  var STATUS_LABELS = {
+    "planned": "Planned",
+    "in-progress": "In progress",
+    "completed": "Completed"
+  };
+
+  var STATUS_ORDER = { "in-progress": 0, "completed": 1, "planned": 2 };
+
+  function renderProjects() {
+    var grid = document.getElementById("projects-grid");
+    var empty = document.getElementById("projects-empty");
+    if (!grid) return;
+
+    var projects = (typeof PROJECTS !== "undefined" && Array.isArray(PROJECTS))
+      ? PROJECTS.slice()
+      : [];
+
+    if (projects.length === 0) {
+      if (empty) empty.hidden = false;
+      return;
+    }
+
+    projects.sort(function (a, b) {
+      var dateA = a.date || "";
+      var dateB = b.date || "";
+      if (dateA !== dateB) return dateA < dateB ? 1 : -1; // newest first
+      var ordA = STATUS_ORDER[a.status] !== undefined ? STATUS_ORDER[a.status] : 3;
+      var ordB = STATUS_ORDER[b.status] !== undefined ? STATUS_ORDER[b.status] : 3;
+      return ordA - ordB;
+    });
+
+    projects.forEach(function (p) {
+      if (!p || !p.title) return;
+
+      var card = document.createElement("article");
+      card.className = "card project-card";
+
+      var status = document.createElement("span");
+      var statusKey = STATUS_LABELS[p.status] ? p.status : "planned";
+      status.className = "project-status status-" + statusKey;
+      status.textContent = STATUS_LABELS[statusKey];
+      card.appendChild(status);
+
+      var title = document.createElement("h3");
+      title.textContent = p.title;
+      card.appendChild(title);
+
+      if (p.summary) {
+        var summary = document.createElement("p");
+        summary.className = "project-summary";
+        summary.textContent = p.summary;
+        card.appendChild(summary);
+      }
+
+      if (Array.isArray(p.tags) && p.tags.length > 0) {
+        var tags = document.createElement("ul");
+        tags.className = "tags";
+        p.tags.forEach(function (t) {
+          var li = document.createElement("li");
+          li.textContent = t;
+          tags.appendChild(li);
+        });
+        card.appendChild(tags);
+      }
+
+      if (p.link) {
+        var link = document.createElement("a");
+        link.className = "project-link";
+        link.href = p.link;
+        link.target = "_blank";
+        link.rel = "noopener";
+        link.textContent = "View project →";
+        card.appendChild(link);
+      }
+
+      grid.appendChild(card);
+    });
+  }
+
+  // ---------- Mobile nav ----------
+  function setupNav() {
+    var toggle = document.querySelector(".nav-toggle");
+    var links = document.querySelector(".nav-links");
+    if (!toggle || !links) return;
+
+    toggle.addEventListener("click", function () {
+      var open = links.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+
+    links.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") {
+        links.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  // ---------- Footer year ----------
+  function setYear() {
+    var el = document.getElementById("year");
+    if (el) el.textContent = new Date().getFullYear();
+  }
+
+  renderProjects();
+  setupNav();
+  setYear();
+})();
