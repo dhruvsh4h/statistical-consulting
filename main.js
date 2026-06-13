@@ -70,12 +70,15 @@
         card.appendChild(tags);
       }
 
-      if (p.link) {
+      // Only render links with an explicit http(s) scheme. This blocks
+      // javascript:, data:, and other unsafe URLs that could slip in via an
+      // auto-generated/AI-written project entry (defence-in-depth XSS guard).
+      if (p.link && /^https?:\/\//i.test(p.link)) {
         var link = document.createElement("a");
         link.className = "project-link";
         link.href = p.link;
         link.target = "_blank";
-        link.rel = "noopener";
+        link.rel = "noopener noreferrer";
         link.textContent = "View project →";
         card.appendChild(link);
       }
