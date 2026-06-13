@@ -49,49 +49,41 @@
           <p class="hero-locator">Okanagan, BC&ensp;·&ensp;Working with researchers across Canada</p>
         </div>
 
-        <!-- Forest plot — the iconic "defensible stats" image (illustrative) -->
-        <figure class="hero-figure" aria-hidden="true">
-          <svg viewBox="0 0 460 360" xmlns="http://www.w3.org/2000/svg" role="img">
-            <text x="24" y="34" class="fp-title">Effect sizes (95% CI)</text>
-
-            <!-- no-effect reference line -->
-            <line x1="150" y1="52" x2="150" y2="298" class="fp-zero"/>
-            <text x="150" y="320" class="fp-axislabel" text-anchor="middle">0</text>
-            <text x="300" y="320" class="fp-axislabel" text-anchor="middle">favours intervention →</text>
-
-            <!-- rows: label / whisker / point -->
-            <g class="fp-row">
-              <text x="132" y="80" class="fp-label">Knowledge</text>
-              <line x1="214" y1="76" x2="286" y2="76" class="fp-ci"/>
-              <circle cx="250" cy="76" r="7" class="fp-pt"/>
-            </g>
-            <g class="fp-row">
-              <text x="132" y="120" class="fp-label">Skill</text>
-              <line x1="258" y1="116" x2="346" y2="116" class="fp-ci"/>
-              <circle cx="302" cy="116" r="7" class="fp-pt"/>
-            </g>
-            <g class="fp-row">
-              <text x="132" y="160" class="fp-label">Confidence</text>
-              <line x1="190" y1="156" x2="248" y2="156" class="fp-ci"/>
-              <circle cx="219" cy="156" r="7" class="fp-pt"/>
-            </g>
-            <g class="fp-row">
-              <text x="132" y="200" class="fp-label">Practice</text>
-              <line x1="286" y1="196" x2="378" y2="196" class="fp-ci"/>
-              <circle cx="332" cy="196" r="7" class="fp-pt"/>
-            </g>
-            <g class="fp-row">
-              <text x="132" y="240" class="fp-label">Wellbeing</text>
-              <line x1="206" y1="236" x2="266" y2="236" class="fp-ci"/>
-              <circle cx="236" cy="236" r="7" class="fp-pt"/>
-            </g>
-
-            <!-- pooled diamond -->
-            <text x="132" y="280" class="fp-label fp-label-strong">Overall</text>
-            <polygon points="244,276 278,268 312,276 278,284" class="fp-diamond"/>
-          </svg>
-          <figcaption class="hero-figure-cap">Effect sizes, not just p-values.</figcaption>
-        </figure>
+        <!-- Live "your question -> the right method" rotator (built in main.js) -->
+        <div class="hero-demo" aria-label="Example questions and the methods that fit them">
+          <p class="hero-demo-label">Tell me your situation<span class="hero-demo-caret">▸</span></p>
+          <div class="hero-demo-stage">
+            <figure class="demo-slide">
+              <blockquote class="demo-q">"I ran a training and surveyed people before and after — did it actually work?"</blockquote>
+              <div class="demo-a">
+                <span class="demo-a-label">The method I'd reach for</span>
+                <ul class="demo-tags"><li>Wilcoxon signed-rank</li><li>Effect size (Cohen's d)</li></ul>
+              </div>
+            </figure>
+            <figure class="demo-slide">
+              <blockquote class="demo-q">"My two groups look different — is it real, or just chance?"</blockquote>
+              <div class="demo-a">
+                <span class="demo-a-label">The method I'd reach for</span>
+                <ul class="demo-tags"><li>t-test / ANOVA</li><li>Mann–Whitney</li></ul>
+              </div>
+            </figure>
+            <figure class="demo-slide">
+              <blockquote class="demo-q">"I built a questionnaire — does it actually measure what I think?"</blockquote>
+              <div class="demo-a">
+                <span class="demo-a-label">The method I'd reach for</span>
+                <ul class="demo-tags"><li>SEM</li><li>Reliability &amp; validity</li></ul>
+              </div>
+            </figure>
+            <figure class="demo-slide">
+              <blockquote class="demo-q">"We're about to collect data — how many people do I need?"</blockquote>
+              <div class="demo-a">
+                <span class="demo-a-label">The method I'd reach for</span>
+                <ul class="demo-tags"><li>Power analysis</li><li>Sample-size planning</li></ul>
+              </div>
+            </figure>
+          </div>
+          <div class="demo-dots" aria-label="Choose an example"></div>
+        </div>
       </div>
     </section>
 

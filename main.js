@@ -109,6 +109,48 @@
     if (el) el.textContent = new Date().getFullYear();
   }
 
+  // ---------- Hero "question -> method" rotator ----------
+  function setupHeroDemo() {
+    var host = document.querySelector(".hero-demo");
+    var stage = document.querySelector(".hero-demo-stage");
+    var dotsWrap = document.querySelector(".demo-dots");
+    if (!host || !stage || !dotsWrap) return;
+
+    var slides = Array.prototype.slice.call(stage.querySelectorAll(".demo-slide"));
+    if (slides.length === 0) return;
+
+    var idx = 0;
+    var timer = null;
+    var DELAY = 7200;
+
+    var dots = slides.map(function (_, i) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.setAttribute("aria-label", "Example " + (i + 1));
+      b.addEventListener("click", function () { show(i); restart(); });
+      dotsWrap.appendChild(b);
+      return b;
+    });
+
+    function show(n) {
+      idx = (n + slides.length) % slides.length;
+      slides.forEach(function (s, i) { s.classList.toggle("is-active", i === idx); });
+      dots.forEach(function (d, i) { d.classList.toggle("is-active", i === idx); });
+    }
+    function next() { show(idx + 1); }
+    function start() { if (!timer) timer = window.setInterval(next, DELAY); }
+    function stop() { if (timer) { window.clearInterval(timer); timer = null; } }
+    function restart() { stop(); start(); }
+
+    show(0);
+    start();
+
+    host.addEventListener("mouseenter", stop);
+    host.addEventListener("mouseleave", start);
+    host.addEventListener("focusin", stop);
+    host.addEventListener("focusout", start);
+  }
+
   // ---------- Scroll reveal ----------
   function setupReveal() {
     var els = document.querySelectorAll(".reveal");
@@ -137,5 +179,6 @@
   renderProjects();
   setupNav();
   setYear();
+  setupHeroDemo();
   setupReveal();
 })();
