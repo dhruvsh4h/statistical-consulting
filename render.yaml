@@ -1,14 +1,46 @@
-# Render Blueprint — deploys this folder as a free static site.
+# Render Blueprint: deploys this folder as a free static site.
 # Render reads this file automatically when you create a Blueprint
 # from the connected GitHub repo. Docs: https://render.com/docs/blueprint-spec
 services:
   - type: web
-    name: statistical-consulting
+    name: ds-statistics
     runtime: static
-    buildCommand: ""        # plain HTML/CSS/JS — nothing to build
+    buildCommand: ""        # plain HTML/CSS/JS, nothing to build
     staticPublishPath: .    # serve the repo root
     autoDeploy: true        # every push to main goes live automatically
+
+    # ---- Security headers (sent on every response) ----
     headers:
+      # Lock down where resources can load from. Only same-origin scripts,
+      # plus Google Fonts for CSS/font files. No inline scripts allowed.
+      - path: /*
+        name: Content-Security-Policy
+        value: "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests"
+      # Force HTTPS for one year, including subdomains.
+      - path: /*
+        name: Strict-Transport-Security
+        value: "max-age=31536000; includeSubDomains"
+      # Disallow being framed (clickjacking protection; complements frame-ancestors).
       - path: /*
         name: X-Frame-Options
-        value: SAMEORIGIN
+        value: DENY
+      # Stop MIME-type sniffing.
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      # Don't leak full URLs in the Referer header to other sites.
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      # Turn off browser features the site doesn't use.
+      - path: /*
+        name: Permissions-Policy
+        value: "geolocation=(), camera=(), microphone=(), payment=(), usb=(), interest-cohort=()"
+      # Isolate the browsing context.
+      - path: /*
+        name: Cross-Origin-Opener-Policy
+        value: same-origin
+      # Disable the legacy XSS auditor (modern guidance: rely on CSP).
+      - path: /*
+        name: X-XSS-Protection
+        value: "0"

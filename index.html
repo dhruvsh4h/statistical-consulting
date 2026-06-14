@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dhruv Shah — Statistical Consulting | Okanagan, BC</title>
-  <meta name="description" content="Independent statistical consulting for researchers, graduate students, and research-driven organizations. Study design, the right test for your data, and results explained clearly enough to write up and defend.">
+  <!-- CSP fallback (the authoritative policy is set as an HTTP header in render.yaml) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>DS Statistics · Statistical Consulting for Research | Okanagan, BC</title>
+  <meta name="description" content="DS Statistics provides independent statistical consulting for researchers, graduate students, and research-driven organizations. Study design, the right test, and results explained clearly enough to write up and defend.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,14 +18,13 @@
   <!-- ============ NAV ============ -->
   <header class="site-header">
     <nav class="nav container">
-      <a href="#top" class="brand">Dhruv Shah <span class="brand-sub">· Statistical Consulting</span></a>
+      <a href="#top" class="brand">DS Statistics <span class="brand-sub">· Statistical consulting</span></a>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
       <ul class="nav-links">
-        <li><a href="#help">How I can help</a></li>
+        <li><a href="#help">How I help</a></li>
         <li><a href="#services">What I do</a></li>
-        <li><a href="#work">Selected work</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#process">Working together</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#process">Process</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact" class="nav-cta">Contact</a></li>
       </ul>
@@ -34,65 +36,85 @@
     <!-- ============ HERO ============ -->
     <section class="hero">
       <div class="container hero-inner">
-        <p class="hero-kicker">Independent statistical consulting</p>
-        <h1>Statistical analysis you can <em>defend</em> — in peer review, to a committee, or in the boardroom.</h1>
-        <p class="hero-sub">
-          I work with researchers, graduate students, survey agencies, and research-driven
-          organizations. Help with study design, choosing the right test for your data, and
-          results explained clearly enough to write up — and stand behind when questioned.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#contact">Book a free 20-minute call</a>
-          <a class="btn btn-ghost" href="#help">See how I can help</a>
+        <div class="hero-text">
+          <p class="hero-kicker">Independent statistical consulting</p>
+          <h1>Statistics you can <em>defend</em> in review, to a committee, or in the boardroom.</h1>
+          <p class="hero-sub">
+            For researchers, graduate students, survey agencies, and research-driven
+            organizations. From study design to the right test to results explained
+            clearly enough to write up, and stand behind when questioned.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Book a free 20-min call</a>
+            <a class="btn btn-ghost" href="#help">See how I help</a>
+          </div>
+          <p class="hero-locator">Okanagan, BC&ensp;·&ensp;Working with researchers across Canada</p>
         </div>
-        <p class="hero-locator">Based in the Okanagan, BC&ensp;·&ensp;Working with researchers across Canada</p>
+
+        <!-- Live "your question -> the right method" rotator (built in main.js) -->
+        <div class="hero-demo" aria-label="Example questions and the methods that fit them">
+          <p class="hero-demo-label">Tell me your situation<span class="hero-demo-caret">▸</span></p>
+          <div class="hero-demo-stage">
+            <figure class="demo-slide">
+              <blockquote class="demo-q">"I ran a training and surveyed people before and after. Did it actually work?"</blockquote>
+              <div class="demo-a">
+                <span class="demo-a-label">The method I'd reach for</span>
+                <ul class="demo-tags"><li>Wilcoxon signed-rank</li><li>Effect size (Cohen's d)</li></ul>
+              </div>
+            </figure>
+            <figure class="demo-slide">
+              <blockquote class="demo-q">"My two groups look different. Is it real, or just chance?"</blockquote>
+              <div class="demo-a">
+                <span class="demo-a-label">The method I'd reach for</span>
+                <ul class="demo-tags"><li>t-test / ANOVA</li><li>Mann–Whitney</li></ul>
+              </div>
+            </figure>
+            <figure class="demo-slide">
+              <blockquote class="demo-q">"I built a questionnaire. Does it actually measure what I think?"</blockquote>
+              <div class="demo-a">
+                <span class="demo-a-label">The method I'd reach for</span>
+                <ul class="demo-tags"><li>SEM</li><li>Reliability &amp; validity</li></ul>
+              </div>
+            </figure>
+            <figure class="demo-slide">
+              <blockquote class="demo-q">"We're about to collect data. How many people do I need?"</blockquote>
+              <div class="demo-a">
+                <span class="demo-a-label">The method I'd reach for</span>
+                <ul class="demo-tags"><li>Power analysis</li><li>Sample-size planning</li></ul>
+              </div>
+            </figure>
+          </div>
+          <div class="demo-dots" aria-label="Choose an example"></div>
+        </div>
       </div>
     </section>
 
     <!-- ============ QUESTIONS I CAN HELP WITH (plain language) ============ -->
-    <section id="help" class="section">
+    <section id="help" class="section reveal">
       <div class="container">
         <p class="section-kicker">In plain language</p>
-        <h2>Sound like your situation? That's what I'm here for.</h2>
+        <h2>Sounds like your situation?</h2>
         <p class="section-lead">
           You don't need to know the name of the test you need. If any of these sound
           familiar, I can help.
         </p>
         <div class="card-grid">
-          <div class="card quote-card">
-            <p>"I ran a program or training and collected surveys before and after. <strong>Did it actually work?</strong>"</p>
-          </div>
-          <div class="card quote-card">
-            <p>"My two groups look different in the data. <strong>Is the difference real, or just chance?</strong>"</p>
-          </div>
-          <div class="card quote-card">
-            <p>"A reviewer or committee member says my analysis is wrong. <strong>What should I have done — and how do I fix it?</strong>"</p>
-          </div>
-          <div class="card quote-card">
-            <p>"I'm about to collect data. <strong>How many people do I need, and what should I ask?</strong>"</p>
-          </div>
-          <div class="card quote-card">
-            <p>"I built a questionnaire. <strong>How do I show it actually measures what I think it measures?</strong>"</p>
-          </div>
-          <div class="card quote-card">
-            <p>"My data is rating scales (agree / disagree) and it's not 'normal'. <strong>Which test is even allowed here?</strong>"</p>
-          </div>
-          <div class="card quote-card">
-            <p>"I have the results, but <strong>I don't know how to write them up</strong> for my thesis, paper, or report."</p>
-          </div>
-          <div class="card quote-card">
-            <p>"Our organization sits on years of survey or operational data. <strong>What is it actually telling us?</strong>"</p>
-          </div>
+          <div class="card quote-card"><p>"I ran a program and collected before/after surveys. <strong>Did it actually work?</strong>"</p></div>
+          <div class="card quote-card"><p>"My two groups look different. <strong>Is it real, or just chance?</strong>"</p></div>
+          <div class="card quote-card"><p>"A reviewer says my stats are wrong. <strong>How do I fix it?</strong>"</p></div>
+          <div class="card quote-card"><p>"I'm about to collect data. <strong>How many people do I need, and what do I ask?</strong>"</p></div>
+          <div class="card quote-card"><p>"My data is rating scales and isn't 'normal.' <strong>Which test is even allowed?</strong>"</p></div>
+          <div class="card quote-card"><p>"We sit on years of survey data. <strong>What is it actually telling us?</strong>"</p></div>
         </div>
         <p class="section-foot">
-          If your situation isn't on this list, <a href="#contact">describe it to me</a> —
-          if I'm not the right fit, I'll say so and point you somewhere better.
+          Not on the list? <a href="#contact">Describe it to me.</a> If I'm not the right
+          fit, I'll say so and point you somewhere better.
         </p>
       </div>
     </section>
 
     <!-- ============ WHAT I DO ============ -->
-    <section id="services" class="section section-alt">
+    <section id="services" class="section section-alt reveal">
       <div class="container">
         <p class="section-kicker">Services &amp; methods</p>
         <h2>What I do</h2>
@@ -100,192 +122,158 @@
           <div class="service featured">
             <h3>Results, written for your paper</h3>
             <p>
-              Analysis delivered with the tables, effect sizes, and plain-language
-              interpretation you can put straight into a manuscript, thesis, or grant
-              report — and defend in review. Most statisticians hand back numbers;
-              I hand back something ready to write up.
+              Most statisticians hand back numbers. I hand back the tables, effect sizes,
+              and plain-language interpretation you can drop straight into a manuscript,
+              thesis, or grant report, and defend in review.
             </p>
-            <span class="featured-tag">The difference</span>
           </div>
           <div class="service">
             <h3>Study &amp; survey design</h3>
-            <p>
-              Choosing the right design, sample size, and instruments <em>before</em> you
-              collect data — so the analysis is sound from the start, not rescued afterward.
-            </p>
+            <p>The right design, sample size, and instruments, chosen <em>before</em> you collect, so the analysis is sound from the start.</p>
           </div>
           <div class="service">
             <h3>Group comparisons &amp; intervention analysis</h3>
-            <p>
-              Pre/post and between-group evaluation using the appropriate parametric or
-              non-parametric tests (t-tests, ANOVA, Wilcoxon signed-rank, Mann–Whitney),
-              with effect sizes — not just p-values.
-            </p>
+            <p>Pre/post and between-group tests (t-tests, ANOVA, Wilcoxon, Mann–Whitney) reported with effect sizes, not just p-values.</p>
           </div>
           <div class="service">
-            <h3>Structural Equation Modeling (SEM) &amp; latent-variable analysis</h3>
-            <p>
-              Measurement models, multi-group comparison, and modeling relationships
-              between constructs for psychometric and survey research.
-            </p>
+            <h3>SEM &amp; latent-variable analysis</h3>
+            <p>Measurement models, multi-group comparison, and modeling relationships between constructs for psychometric and survey research.</p>
           </div>
           <div class="service">
             <h3>Psychometric &amp; scale analysis</h3>
-            <p>
-              Reliability, validity, and the behaviour of Likert/ordinal instruments
-              across groups.
-            </p>
+            <p>Reliability, validity, and the behaviour of Likert/ordinal instruments across groups.</p>
           </div>
           <div class="service">
             <h3>Regression &amp; predictive modeling</h3>
-            <p>
-              Linear, logistic, and mixed/multilevel models for nested or
-              repeated-measures data.
-            </p>
+            <p>Linear, logistic, and mixed/multilevel models for nested or repeated-measures data.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============ SELECTED WORK ============ -->
-    <section id="work" class="section">
+    <section id="work" class="section reveal">
       <div class="container">
         <p class="section-kicker">Selected work (de-identified)</p>
         <h2>Recent engagements</h2>
-        <p class="section-lead">
-          Client work is confidential, so these are described by method and outcome only.
-        </p>
+        <p class="section-lead">Client work is confidential, described here by method and outcome only.</p>
+
         <div class="work-grid">
           <article class="work-card">
-            <h3>Intervention evaluation — clinical training cohort</h3>
+            <h3>Intervention evaluation</h3>
+            <p class="work-tagline">Clinical training cohort · N = 66</p>
             <p>
-              Analyzed paired pre/post survey data (N&nbsp;=&nbsp;66) measuring training
-              outcomes across five ordinal competency dimensions. Applied the Wilcoxon
-              signed-rank test for non-normal paired data and reported standardized
-              effect size (Cohen's&nbsp;d), confirming a large, statistically significant
-              improvement. Delivered a publication-ready report with interpretation.
+              Paired pre/post data across five ordinal competency dimensions. Chose the
+              Wilcoxon signed-rank test for non-normal paired data and reported Cohen's d,
+              confirming a large, significant improvement. Delivered publication-ready.
             </p>
-            <ul class="tags">
-              <li>Wilcoxon signed-rank</li><li>Effect sizes</li><li>Pre/post design</li>
-            </ul>
+            <ul class="tags"><li>Wilcoxon signed-rank</li><li>Effect sizes</li><li>Pre/post</li></ul>
           </article>
+
           <article class="work-card">
-            <h3>Group-differences study — survey research</h3>
+            <h3>Structural equation modeling</h3>
+            <p class="work-tagline">Multi-group wellbeing survey</p>
             <p>
-              Conducted analysis of a multi-group survey comparing psychological and
-              wellbeing measures across population subgroups, including between-person
-              variability across multiple validated scales, structured for direct
-              inclusion in a research write-up.
+              I built the SEM from the ground up: defined the latent constructs, mapped
+              which validated-scale items loaded on each, and confirmed model fit, then
+              ran multi-group SEM to compare those constructs across population subgroups
+              and examine between-person variability. Structured for direct inclusion in
+              the write-up.
             </p>
-            <ul class="tags">
-              <li>Multi-group comparison</li><li>Validated scales</li><li>Write-up ready</li>
-            </ul>
+            <ul class="tags"><li>SEM</li><li>Latent variables</li><li>Multi-group</li><li>Model fit</li></ul>
+          </article>
+
+          <article class="work-card">
+            <h3>Survey design</h3>
+            <p class="work-tagline">Community needs assessment</p>
+            <p>
+              Designed a needs-assessment survey for a community organization covering
+              sensitive topics: mental health, experiences of harm, discrimination, and
+              suicidality. Selected validated scales, structured questions for clean
+              analysis, and wrote trauma-informed consent and safety language that keeps
+              participants in control.
+            </p>
+            <blockquote class="work-quote">
+              "Your wellbeing matters. You can skip any question or stop at any time."
+            </blockquote>
+            <ul class="tags"><li>Survey design</li><li>Trauma-informed</li><li>Validated scales</li></ul>
           </article>
         </div>
 
         <div class="experience-strip">
           <h3>Earlier &amp; broader experience</h3>
           <p>
-            Four years building data systems for healthcare in BC — executive dashboards,
-            reporting automation that cut multi-hour reports to minutes, and a live
-            operations dashboard used during the 2023 wildfire response.
+            Four years building data systems for BC healthcare: predictive and semantic
+            modeling, data analysis, executive dashboards, reporting automation that cut
+            multi-hour reports to minutes, and a live operations dashboard used during the
+            2023 wildfire response.
           </p>
-          <p class="toolset">Toolset:&ensp;Python&ensp;·&ensp;R&ensp;·&ensp;SQL&ensp;·&ensp;Power&nbsp;BI</p>
+          <p class="toolset">Python&ensp;·&ensp;R&ensp;·&ensp;SQL&ensp;·&ensp;Power&nbsp;BI</p>
         </div>
       </div>
     </section>
 
-    <!-- ============ PROJECTS (data-driven) ============ -->
-    <section id="projects" class="section section-alt">
-      <div class="container">
-        <p class="section-kicker">In the lab</p>
-        <h2>Projects &amp; tools I'm building</h2>
-        <p class="section-lead">
-          Self-directed projects — open methods work, tools, and write-ups. New ones
-          appear here as they take shape.
-        </p>
-        <div id="projects-grid" class="card-grid projects-grid">
-          <!-- Rendered from projects-data.js -->
-        </div>
-        <p id="projects-empty" class="section-foot" hidden>
-          Projects are brewing — check back soon.
-        </p>
-      </div>
-    </section>
+    <!-- ============ PROJECTS (data-driven) ============
+         Temporarily removed until there are more projects to showcase.
+         To restore: re-add the <section id="projects"> block here and the
+         "Projects" link in the nav. projects-data.js and the renderProjects()
+         code in main.js are still in place, so it will just work. -->
 
     <!-- ============ PROCESS ============ -->
-    <section id="process" class="section">
+    <section id="process" class="section section-alt reveal">
       <div class="container">
         <p class="section-kicker">Working together</p>
         <h2>How it works</h2>
         <ol class="steps">
-          <li>
-            <h3>We talk — free of charge</h3>
-            <p>We start with a short call about your research question and your data. No charge to scope it.</p>
-          </li>
-          <li>
-            <h3>You get an honest read</h3>
-            <p>I tell you what the data can and can't support. If a simpler approach is right, I'll say so.</p>
-          </li>
-          <li>
-            <h3>Your data stays protected</h3>
-            <p>I work with de-identified data wherever possible, on your terms, under a confidentiality agreement.</p>
-          </li>
-          <li>
-            <h3>You get something you can use</h3>
-            <p>The analysis, the tables and figures, and a plain-language interpretation you can write up and defend.</p>
-          </li>
+          <li><h3>We talk, free of charge</h3><p>A short call about your research question and your data. No charge to scope it.</p></li>
+          <li><h3>You get an honest read</h3><p>I tell you what the data can and can't support. If a simpler approach is right, I'll say so.</p></li>
+          <li><h3>Your data stays protected</h3><p>De-identified data wherever possible, on your terms, under a confidentiality agreement.</p></li>
+          <li><h3>You get something usable</h3><p>The analysis, tables and figures, and a plain-language interpretation you can write up and defend.</p></li>
         </ol>
 
         <div class="confidentiality">
           <h3>Data confidentiality</h3>
           <p>
-            Research data is sensitive, and I treat it that way. I'll sign a
-            confidentiality agreement before seeing anything, work with de-identified
-            or aggregated data wherever the analysis allows, and handle all data
-            securely and only for the agreed purpose. If your work involves a research
-            ethics board, I'm happy to work within its requirements.
+            Research data is sensitive, and I treat it that way. I'll sign a confidentiality
+            agreement before seeing anything, work with de-identified or aggregated data
+            wherever the analysis allows, and handle everything securely and only for the
+            agreed purpose. If your work involves a research ethics board, I'll work within
+            its requirements.
           </p>
         </div>
       </div>
     </section>
 
     <!-- ============ ABOUT ============ -->
-    <section id="about" class="section section-alt">
+    <section id="about" class="section reveal">
       <div class="container about-inner">
         <p class="section-kicker">About</p>
         <h2>I'm Dhruv Shah.</h2>
         <p>
-          I hold a background in electrical engineering and a postgraduate diploma in
-          data analytics, and I've spent four years working with data in BC healthcare.
-          I now consult independently on statistical analysis for researchers and
-          research-driven organizations — bringing the same standard of rigor to
-          studies, surveys, and evaluations.
-        </p>
-        <p>
-          I work with researchers who need their analysis done correctly and explained
-          clearly enough to stand up to review.
+          A background in electrical engineering, a postgraduate diploma in data analytics,
+          and four years working with data in BC healthcare. I now consult independently on
+          statistical analysis for researchers and research-driven organizations. I bring
+          the same rigor to studies, surveys, and evaluations, and explain it clearly
+          enough to stand up to review.
         </p>
         <div class="about-links">
           <a href="mailto:Shahdhruv.19498@gmail.com">Email</a>
           <span>·</span>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
       </div>
     </section>
 
     <!-- ============ CONTACT ============ -->
-    <section id="contact" class="section contact">
+    <section id="contact" class="section contact reveal">
       <div class="container contact-inner">
         <h2>Have a study, a dataset, or a method question?</h2>
-        <p>
-          Tell me what you're working on and I'll tell you honestly how I can help.
-        </p>
+        <p>Tell me what you're working on and I'll tell you honestly how I can help.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="mailto:Shahdhruv.19498@gmail.com?subject=Statistical%20consulting%20inquiry">Email me</a>
           <a class="btn btn-ghost btn-ghost-light" href="mailto:Shahdhruv.19498@gmail.com?subject=Booking%20a%2020-minute%20call">Book a 20-minute call</a>
         </div>
-        <p class="contact-note">The first call is free, and there's no obligation after it.</p>
+        <p class="contact-note">The first call is free, with no obligation after it.</p>
       </div>
     </section>
 
@@ -293,8 +281,8 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>© <span id="year"></span> Dhruv Shah · Statistical Consulting</p>
-      <p>Based in the Okanagan, BC · Working with researchers across Canada</p>
+      <p>© <span id="year"></span> DS Statistics</p>
+      <p>Dhruv Shah · Okanagan, BC · Working with researchers across Canada</p>
     </div>
   </footer>
 
