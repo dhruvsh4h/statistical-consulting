@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="DS Statistics">
+  <rect width="64" height="64" rx="14" fill="#1e6f6b"/>
+  <text x="32" y="45" text-anchor="middle"
+        font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif"
+        font-size="34" font-weight="700" letter-spacing="-1.5" fill="#ffffff">DS</text>
+</svg>
