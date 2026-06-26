@@ -62,12 +62,10 @@ The file is plain, documented, and schema'd on purpose so an automation or AI
 model can read it, append a project object, and write it back (e.g. a script
 that drafts a project card from a repo README).
 
-## Before going live — replace placeholders
+## Contact details (where to update them)
 
-1. **LinkedIn URL** — in `index.html`, the About section links to
-   `https://www.linkedin.com/`. Replace with your profile URL.
-2. **Booking link** — the "Book a 20-minute call" buttons currently open a
-   pre-filled email. If you set up Calendly/Cal.com, replace those `mailto:`
-   hrefs with your booking URL.
-3. **Email** — currently `Shahdhruv.19498@gmail.com` everywhere; consider a
-   dedicated consulting address later (one find-and-replace).
+All live in `index.html` (a couple of spots each). Change them and push; Render redeploys automatically.
+
+- **Email:** `dhruv@dsstatistics.ca` (About link and the "Email me" button)
+- **Booking:** Calendly `https://calendly.com/dhruv-dsstatistics/10` (10-minute call) on the two "Book a ... call" buttons
+- **LinkedIn:** `https://www.linkedin.com/in/dhruv-shah-2964a9137/` (About section)
