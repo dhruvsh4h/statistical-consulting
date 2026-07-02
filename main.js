@@ -154,6 +154,178 @@
     host.addEventListener("focusout", start);
   }
 
+  // ---------- "Find your test" interactive ----------
+  // Small decision tree. Deliberately honest: the result is a starting
+  // point, and the caveat says assumptions still need checking.
+  var TF_TREE = {
+    start: {
+      question: "What do you want to find out?",
+      options: [
+        { label: "Did something change after a program or treatment?", next: "pairedType" },
+        { label: "Are separate groups different from each other?", next: "groupCount" },
+        { label: "Does my questionnaire measure what it should?", result: "psych" },
+        { label: "What predicts an outcome?", next: "predictType" }
+      ]
+    },
+    pairedType: {
+      question: "What kind of outcome are you measuring?",
+      options: [
+        { label: "Rating scales or ranked answers (e.g. Likert)", result: "wilcoxon" },
+        { label: "Measured numbers (scores, times, amounts)", result: "pairedT" }
+      ]
+    },
+    groupCount: {
+      question: "How many groups are you comparing?",
+      options: [
+        { label: "Two", next: "groupType2" },
+        { label: "Three or more", next: "groupType3" }
+      ]
+    },
+    groupType2: {
+      question: "What kind of outcome are you measuring?",
+      options: [
+        { label: "Rating scales or ranked answers (e.g. Likert)", result: "mannwhitney" },
+        { label: "Measured numbers (scores, times, amounts)", result: "ttest" }
+      ]
+    },
+    groupType3: {
+      question: "What kind of outcome are you measuring?",
+      options: [
+        { label: "Rating scales or ranked answers (e.g. Likert)", result: "kruskal" },
+        { label: "Measured numbers (scores, times, amounts)", result: "anova" }
+      ]
+    },
+    predictType: {
+      question: "What kind of outcome are you predicting?",
+      options: [
+        { label: "A yes/no outcome (pass/fail, respond/not)", result: "logistic" },
+        { label: "A number (score, amount, time)", result: "linear" }
+      ]
+    }
+  };
+
+  var TF_RESULTS = {
+    wilcoxon: {
+      name: "Wilcoxon signed-rank test",
+      why: "Built for before/after data from the same people when the outcome is ordinal or not bell-shaped. Report an effect size alongside the p-value."
+    },
+    pairedT: {
+      name: "Paired t-test",
+      why: "Compares the same people before and after on a measured, roughly normal outcome. If normality fails, the Wilcoxon signed-rank is the backup."
+    },
+    mannwhitney: {
+      name: "Mann–Whitney U test",
+      why: "Compares two separate groups when the outcome is ordinal or not normally distributed."
+    },
+    ttest: {
+      name: "Independent-samples t-test",
+      why: "Compares two separate groups on a measured, roughly normal outcome. Welch's version is the safer default."
+    },
+    kruskal: {
+      name: "Kruskal–Wallis test",
+      why: "Compares three or more groups on an ordinal or non-normal outcome, with pairwise follow-ups to see where the differences are."
+    },
+    anova: {
+      name: "One-way ANOVA",
+      why: "Compares three or more groups on a measured outcome, with post-hoc tests to see which groups differ."
+    },
+    psych: {
+      name: "Reliability & factor analysis",
+      why: "Cronbach's alpha or omega for internal consistency, plus factor analysis or an SEM measurement model to check the scale's structure."
+    },
+    logistic: {
+      name: "Logistic regression",
+      why: "Models a yes/no outcome and gives you odds ratios you can actually interpret."
+    },
+    linear: {
+      name: "Linear regression",
+      why: "Models a numeric outcome. If the same people appear more than once, a mixed model handles that properly."
+    }
+  };
+
+  function setupTestFinder() {
+    var stage = document.getElementById("tf-stage");
+    if (!stage) return;
+
+    var history = [];
+
+    function clearStage() {
+      while (stage.firstChild) stage.removeChild(stage.firstChild);
+    }
+
+    function el(tag, className, text) {
+      var node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text) node.textContent = text;
+      return node;
+    }
+
+    function showStep(key) {
+      var step = TF_TREE[key];
+      if (!step) return;
+      clearStage();
+
+      var box = el("div", "tf-fade");
+      box.appendChild(el("p", "tf-step-label", "Question " + (history.length + 1)));
+      box.appendChild(el("p", "tf-question", step.question));
+
+      step.options.forEach(function (opt) {
+        var btn = el("button", "tf-option", opt.label);
+        btn.type = "button";
+        btn.addEventListener("click", function () {
+          history.push(key);
+          if (opt.result) showResult(opt.result);
+          else showStep(opt.next);
+        });
+        box.appendChild(btn);
+      });
+
+      if (history.length > 0) {
+        var back = el("button", "tf-back", "← Back");
+        back.type = "button";
+        back.addEventListener("click", function () {
+          showStep(history.pop());
+        });
+        box.appendChild(back);
+      }
+
+      stage.appendChild(box);
+    }
+
+    function showResult(key) {
+      var res = TF_RESULTS[key];
+      if (!res) return;
+      clearStage();
+
+      var box = el("div", "tf-fade");
+      box.appendChild(el("p", "tf-result-label", "The test I'd start with"));
+      box.appendChild(el("p", "tf-result-name", res.name));
+      box.appendChild(el("p", "tf-result-why", res.why));
+      box.appendChild(el("p", "tf-caveat",
+        "Real data is messier than three questions. Assumptions still need checking, and that's the part I do."));
+
+      var actions = el("div", "tf-actions");
+      var cta = el("a", "btn btn-primary", "Book a free 10-min call");
+      cta.href = "https://calendly.com/dhruv-dsstatistics/10";
+      cta.target = "_blank";
+      cta.rel = "noopener noreferrer";
+      actions.appendChild(cta);
+
+      var restart = el("button", "tf-restart", "Start over");
+      restart.type = "button";
+      restart.addEventListener("click", function () {
+        history = [];
+        showStep("start");
+      });
+      actions.appendChild(restart);
+
+      box.appendChild(actions);
+      stage.appendChild(box);
+    }
+
+    showStep("start");
+  }
+
   // ---------- Scroll reveal ----------
   function setupReveal() {
     var els = document.querySelectorAll(".reveal");
@@ -183,5 +355,6 @@
   setupNav();
   setYear();
   setupHeroDemo();
+  setupTestFinder();
   setupReveal();
 })();
