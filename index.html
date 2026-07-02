@@ -43,9 +43,9 @@
           <p class="hero-kicker">Independent statistical consulting</p>
           <h1>Statistics you can <em>defend</em> in review, to a committee, or in the boardroom.</h1>
           <p class="hero-sub">
-            For researchers, graduate students, survey agencies, and research-driven
-            organizations. From study design to the right test to results explained
-            clearly enough to write up, and stand behind when questioned.
+            Study design, the right test for your data, and results you can write up
+            and stand behind. For researchers, graduate students, survey agencies,
+            and research-driven organizations.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://calendly.com/dhruv-dsstatistics/10" target="_blank" rel="noopener noreferrer">Book a free 10-min call</a>
@@ -109,6 +109,19 @@
           <div class="card quote-card"><p>"My data is rating scales and isn't 'normal.' <strong>Which test is even allowed?</strong>"</p></div>
           <div class="card quote-card"><p>"We sit on years of survey data. <strong>What is it actually telling us?</strong>"</p></div>
         </div>
+        <!-- Interactive: answer 2-3 questions, get the likely test (logic in main.js) -->
+        <div class="test-finder">
+          <div class="tf-intro">
+            <p class="tf-kicker">Try it</p>
+            <h3>Find your test in 30 seconds</h3>
+            <p class="tf-sub">
+              Answer a couple of quick questions and I'll point you to the statistical
+              test your situation likely calls for.
+            </p>
+          </div>
+          <div class="tf-stage" id="tf-stage" aria-live="polite"></div>
+        </div>
+
         <p class="section-foot">
           Not on the list? <a href="#contact">Describe it to me.</a> If I'm not the right
           fit, I'll say so and point you somewhere better.
@@ -123,32 +136,65 @@
         <h2>What I do</h2>
         <div class="service-list">
           <div class="service featured">
-            <h3>Results, written for your paper</h3>
+            <span class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+            </span>
+            <h3>Answers you can act on, and defend</h3>
             <p>
-              Most statisticians hand back numbers. I hand back the tables, effect sizes,
-              and plain-language interpretation you can drop straight into a manuscript,
-              thesis, or grant report, and defend in review.
+              Most analysts hand back numbers. I deliver the tables, figures, and
+              plain-language interpretation that say what your data actually means,
+              ready for a manuscript, a board report, or your next decision, and built
+              to hold up when someone pushes back.
             </p>
           </div>
           <div class="service">
+            <span class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+            </span>
             <h3>Study &amp; survey design</h3>
-            <p>The right design, sample size, and instruments, chosen <em>before</em> you collect, so the analysis is sound from the start.</p>
+            <p>The right design, sample size, and instruments, chosen <em>before</em> you collect.</p>
           </div>
           <div class="service">
+            <span class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="20" x2="21" y2="20"/><line x1="6" y1="20" x2="6" y2="12"/><line x1="12" y1="20" x2="12" y2="6"/><line x1="18" y1="20" x2="18" y2="14"/></svg>
+            </span>
             <h3>Group comparisons &amp; intervention analysis</h3>
-            <p>Pre/post and between-group tests (t-tests, ANOVA, Wilcoxon, Mann–Whitney) reported with effect sizes, not just p-values.</p>
+            <p>Pre/post and between-group tests (t-tests, ANOVA, Wilcoxon, Mann–Whitney) with effect sizes, not just p-values.</p>
           </div>
           <div class="service">
+            <span class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="10.5" x2="15.4" y2="6.5"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/></svg>
+            </span>
             <h3>SEM &amp; latent-variable analysis</h3>
-            <p>Measurement models, multi-group comparison, and modeling relationships between constructs for psychometric and survey research.</p>
+            <p>Measurement models, multi-group comparison, and relationships between constructs.</p>
           </div>
           <div class="service">
+            <span class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+            </span>
             <h3>Psychometric &amp; scale analysis</h3>
-            <p>Reliability, validity, and the behaviour of Likert/ordinal instruments across groups.</p>
+            <p>Reliability, validity, and how Likert/ordinal instruments behave across groups.</p>
           </div>
           <div class="service">
+            <span class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </span>
             <h3>Regression &amp; predictive modeling</h3>
             <p>Linear, logistic, and mixed/multilevel models for nested or repeated-measures data.</p>
+          </div>
+          <div class="service">
+            <span class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </span>
+            <h3>Deep statistical analysis</h3>
+            <p>The heavy lifting behind the visuals: robust methods, assumption checks, and messy or non-standard data handled honestly.</p>
+          </div>
+          <div class="service">
+            <span class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </span>
+            <h3>Data pipelines &amp; automation</h3>
+            <p>Clean data in, refreshed reports out. Pipelines and backend infrastructure that keep working long after the project ends.</p>
           </div>
         </div>
       </div>
@@ -165,10 +211,28 @@
           <article class="work-card">
             <h3>Intervention evaluation</h3>
             <p class="work-tagline">Clinical training cohort · N = 66</p>
+            <svg class="work-chart" viewBox="0 0 260 112" aria-hidden="true">
+              <line x1="62" y1="14" x2="62" y2="88" class="wc-axis"/>
+              <line x1="198" y1="14" x2="198" y2="88" class="wc-axis"/>
+              <line x1="62" y1="72" x2="198" y2="38" class="wc-line"/>
+              <line x1="62" y1="58" x2="198" y2="24" class="wc-line"/>
+              <line x1="62" y1="80" x2="198" y2="52" class="wc-line"/>
+              <line x1="62" y1="46" x2="198" y2="18" class="wc-line"/>
+              <circle cx="62" cy="72" r="4" class="wc-dot-pre"/>
+              <circle cx="62" cy="58" r="4" class="wc-dot-pre"/>
+              <circle cx="62" cy="80" r="4" class="wc-dot-pre"/>
+              <circle cx="62" cy="46" r="4" class="wc-dot-pre"/>
+              <circle cx="198" cy="38" r="4.5" class="wc-dot-post"/>
+              <circle cx="198" cy="24" r="4.5" class="wc-dot-post"/>
+              <circle cx="198" cy="52" r="4.5" class="wc-dot-post"/>
+              <circle cx="198" cy="18" r="4.5" class="wc-dot-post"/>
+              <text x="62" y="104" text-anchor="middle" class="wc-label">Pre</text>
+              <text x="198" y="104" text-anchor="middle" class="wc-label">Post</text>
+            </svg>
             <p>
-              Paired pre/post data across five ordinal competency dimensions. Chose the
-              Wilcoxon signed-rank test for non-normal paired data and reported Cohen's d,
-              confirming a large, significant improvement. Delivered publication-ready.
+              Wilcoxon signed-rank on paired pre/post data across five competency
+              dimensions, with Cohen's d. A large, significant improvement,
+              delivered publication-ready.
             </p>
             <ul class="tags"><li>Wilcoxon signed-rank</li><li>Effect sizes</li><li>Pre/post</li></ul>
           </article>
@@ -176,12 +240,28 @@
           <article class="work-card">
             <h3>Structural equation modeling</h3>
             <p class="work-tagline">Multi-group wellbeing survey</p>
+            <svg class="work-chart" viewBox="0 0 260 112" aria-hidden="true">
+              <rect x="14" y="16" width="14" height="14" rx="2" class="wc-square"/>
+              <rect x="14" y="48" width="14" height="14" rx="2" class="wc-square"/>
+              <rect x="14" y="80" width="14" height="14" rx="2" class="wc-square"/>
+              <line x1="28" y1="23" x2="53" y2="47" class="wc-link"/>
+              <line x1="28" y1="55" x2="51" y2="55" class="wc-link"/>
+              <line x1="28" y1="87" x2="53" y2="63" class="wc-link"/>
+              <circle cx="70" cy="55" r="19" class="wc-shape"/>
+              <line x1="89" y1="55" x2="162" y2="55" class="wc-path"/>
+              <polygon points="170,55 160,50 160,60" class="wc-arrow"/>
+              <circle cx="189" cy="55" r="19" class="wc-shape"/>
+              <line x1="208" y1="48" x2="231" y2="24" class="wc-link"/>
+              <line x1="208" y1="55" x2="231" y2="55" class="wc-link"/>
+              <line x1="208" y1="62" x2="231" y2="86" class="wc-link"/>
+              <rect x="230" y="16" width="14" height="14" rx="2" class="wc-square"/>
+              <rect x="230" y="48" width="14" height="14" rx="2" class="wc-square"/>
+              <rect x="230" y="80" width="14" height="14" rx="2" class="wc-square"/>
+            </svg>
             <p>
-              I built the SEM from the ground up: defined the latent constructs, mapped
-              which validated-scale items loaded on each, and confirmed model fit, then
-              ran multi-group SEM to compare those constructs across population subgroups
-              and examine between-person variability. Structured for direct inclusion in
-              the write-up.
+              Built the SEM from the ground up: defined the latent constructs, confirmed
+              model fit, and compared constructs across population subgroups, write-up
+              ready.
             </p>
             <ul class="tags"><li>SEM</li><li>Latent variables</li><li>Multi-group</li><li>Model fit</li></ul>
           </article>
@@ -190,11 +270,9 @@
             <h3>Survey design</h3>
             <p class="work-tagline">Community needs assessment</p>
             <p>
-              Designed a needs-assessment survey for a community organization covering
-              sensitive topics: mental health, experiences of harm, discrimination, and
-              suicidality. Selected validated scales, structured questions for clean
-              analysis, and wrote trauma-informed consent and safety language that keeps
-              participants in control.
+              Needs-assessment survey on sensitive topics: mental health, harm,
+              discrimination, and suicidality. Validated scales and trauma-informed
+              safety language that keep participants in control.
             </p>
             <blockquote class="work-quote">
               "Your wellbeing matters. You can skip any question or stop at any time."
@@ -228,20 +306,19 @@
         <p class="section-kicker">Working together</p>
         <h2>How it works</h2>
         <ol class="steps">
-          <li><h3>We talk, free of charge</h3><p>A short call about your research question and your data. No charge to scope it.</p></li>
-          <li><h3>You get an honest read</h3><p>I tell you what the data can and can't support. If a simpler approach is right, I'll say so.</p></li>
-          <li><h3>Your data stays protected</h3><p>De-identified data wherever possible, on your terms, under a confidentiality agreement.</p></li>
-          <li><h3>You get something usable</h3><p>The analysis, tables and figures, and a plain-language interpretation you can write up and defend.</p></li>
+          <li><h3>We talk, free of charge</h3><p>A short call about your question and your data.</p></li>
+          <li><h3>You get an honest read</h3><p>What the data can and can't support. If simpler is right, I'll say so.</p></li>
+          <li><h3>Your data stays protected</h3><p>De-identified wherever possible, under a confidentiality agreement.</p></li>
+          <li><h3>You get something usable</h3><p>Analysis, tables, figures, and an interpretation you can defend.</p></li>
         </ol>
 
         <div class="confidentiality">
           <h3>Data confidentiality</h3>
           <p>
-            Research data is sensitive, and I treat it that way. I'll sign a confidentiality
-            agreement before seeing anything, work with de-identified or aggregated data
-            wherever the analysis allows, and handle everything securely and only for the
-            agreed purpose. If your work involves a research ethics board, I'll work within
-            its requirements.
+            Research data is sensitive, and I treat it that way: a signed confidentiality
+            agreement before I see anything, de-identified or aggregated data wherever the
+            analysis allows, and secure handling only for the agreed purpose. If your work
+            involves a research ethics board, I'll work within its requirements.
           </p>
         </div>
       </div>
@@ -254,10 +331,9 @@
         <h2>I'm Dhruv Shah.</h2>
         <p>
           A background in electrical engineering, a postgraduate diploma in data analytics,
-          and four years working with data in BC healthcare. I now consult independently on
-          statistical analysis for researchers and research-driven organizations. I bring
-          the same rigor to studies, surveys, and evaluations, and explain it clearly
-          enough to stand up to review.
+          and four years working with data in BC healthcare. I now consult independently
+          for researchers and research-driven organizations, bringing the same rigor to
+          studies, surveys, and evaluations.
         </p>
         <div class="about-links">
           <a href="mailto:dhruv@dsstatistics.ca">Email</a>
